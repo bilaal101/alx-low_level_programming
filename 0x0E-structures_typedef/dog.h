@@ -1,18 +1,27 @@
-#include <stdio.h>
-#include "main.h"
-
+#ifndef MAIN_H
+#define MAIN_H
 /**
- * main - check the code for Holberton School students.
- *
- * Return: Always 0.
+ * struct dog - Struct
+ * @name: member
+ * @age: member
+ * @owner: member
+ * Description: Define a new type
  */
-int main(void)
+struct dog
 {
-	struct dog my_dog;
-
-	my_dog.name = "Poppy";
-	my_dog.age = 3.5;
-	my_dog.owner = "Bob";
-	printf("My name is %s, and I am %.1f :) - Woof!\n", my_dog.name, my_dog.age);
-	return (0);
-}
+	char *name;
+	float age;
+	char *owner;
+};
+void init_dog(struct dog *d, char *name, float age, char *owner);
+void print_dog(struct dog *d);
+/**
+ * typedef struct dog_t dog - Struct
+ * Description: Define a new type dog_t as a new name for the type struct dog
+ */
+typedef struct dog dog_t;
+dog_t *new_dog(char *name, float age, char *owner);
+int _strlen(char *s);
+char *_strcpy(char *dest, char *src);
+void free_dog(dog_t *d);
+#endif
